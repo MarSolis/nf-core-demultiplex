@@ -1,0 +1,28 @@
+# Version: v3.0.35-src
+230210_M01349_0311_000000000-KTG6P
+Level,Yield,Projected Yield,Aligned,Error Rate,Intensity C1,%>=Q30,% Occupied
+Read 1,4.39,4.39,0.00,nan,158,93.41,nan
+Read 2 (I),0.20,0.20,0.00,nan,457,96.57,nan
+Read 3,4.39,4.39,0.00,nan,129,88.99,nan
+Non-indexed,8.77,8.77,0.00,nan,144,91.20,nan
+Total,8.98,8.98,0.00,nan,248,91.32,nan
+
+
+Read 1
+Lane,Surface,Tiles,Density,Cluster PF,Legacy Phasing/Prephasing Rate,Phasing  slope/offset,Prephasing slope/offset,Reads,Reads PF,%>=Q30,Yield,Cycles Error,Aligned,Error,Error (35),Error (75),Error (100),% Occupied,Intensity C1
+1,-,38,1494 +/- 28,85.49 +/- 1.28,0.172 / 0.110,nan / nan,nan / nan,34.21,29.25,93.41,4.39,0,0.00 +/- 0.00,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,158 +/- 11
+1,1,19,1521 +/- 7,85.43 +/- 1.44,0.173 / 0.116,nan / nan,nan / nan,17.58,15.02,93.33,2.25,-,0.00 +/- 0.00,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,169 +/- 4
+1,2,19,1468 +/- 11,85.54 +/- 1.13,0.171 / 0.103,nan / nan,nan / nan,16.63,14.23,93.49,2.13,-,0.00 +/- 0.00,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,148 +/- 3
+Read 2 (I)
+Lane,Surface,Tiles,Density,Cluster PF,Legacy Phasing/Prephasing Rate,Phasing  slope/offset,Prephasing slope/offset,Reads,Reads PF,%>=Q30,Yield,Cycles Error,Aligned,Error,Error (35),Error (75),Error (100),% Occupied,Intensity C1
+1,-,38,1494 +/- 28,85.49 +/- 1.28,0.000 / 0.000,nan / nan,nan / nan,34.21,29.25,96.57,0.20,0,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,457 +/- 43
+1,1,19,1521 +/- 7,85.43 +/- 1.44,nan / nan,nan / nan,nan / nan,17.58,15.02,96.70,0.11,-,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,494 +/- 23
+1,2,19,1468 +/- 11,85.54 +/- 1.13,nan / nan,nan / nan,nan / nan,16.63,14.23,96.42,0.10,-,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,419 +/- 17
+Read 3
+Lane,Surface,Tiles,Density,Cluster PF,Legacy Phasing/Prephasing Rate,Phasing  slope/offset,Prephasing slope/offset,Reads,Reads PF,%>=Q30,Yield,Cycles Error,Aligned,Error,Error (35),Error (75),Error (100),% Occupied,Intensity C1
+1,-,38,1494 +/- 28,85.49 +/- 1.28,0.150 / 0.094,nan / nan,nan / nan,34.21,29.25,88.99,4.39,0,0.00 +/- 0.00,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,129 +/- 14
+1,1,19,1521 +/- 7,85.43 +/- 1.44,0.152 / 0.098,nan / nan,nan / nan,17.58,15.02,89.49,2.25,-,0.00 +/- 0.00,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,138 +/- 13
+1,2,19,1468 +/- 11,85.54 +/- 1.13,0.148 / 0.090,nan / nan,nan / nan,16.63,14.23,88.47,2.13,-,0.00 +/- 0.00,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,nan +/- nan,120 +/- 7
+Extracted: 310
+Called: 310
+Scored: 310

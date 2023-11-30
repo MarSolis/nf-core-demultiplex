@@ -1,0 +1,7 @@
+# Version: v3.0.35-src
+Lane 1
+Total Reads,PF Reads,% Read Identified (PF),CV,Min,Max
+68422544,58491928,9.0959,0.0126,4.5074,4.5885
+Index Number,Sample Id,Project,Index 1 (I7),Index 2 (I5),% Read Identified (PF)
+1,22-1907,default,ATTGAGGA,,4.5885
+2,22-3675,default,ACTATGCA,,4.5074

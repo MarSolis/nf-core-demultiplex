@@ -3,7 +3,7 @@
 process DEMULTIPARSER{
   tag "Parsing outputs from QC and demultiplexing"
 
-  container "python39:latest"
+  container "demultiplex-parser:latest"
   input:
     val input_dir
     val multiqc_file
