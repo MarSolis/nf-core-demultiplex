@@ -28,7 +28,7 @@ nextflow.enable.dsl = 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { validateParameters; paramsHelp } from 'plugin/nf-validation'
+// include { validateParameters; paramsHelp } from 'plugin/nf-validation'
 
 // Validate input parameters
 // if (params.validate_params) {
