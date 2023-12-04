@@ -52,7 +52,7 @@ class GenerateOut:
 
             for BC in barcodes:
                 df_bc = unknown_barcodes.loc[unknown_barcodes['Sequence'].isin([BC])]
-                df.loc[BC, "unknown_barcode_code"] = BC
+                df.loc[BC,"unknownBarcodeCode"] = BC
                 df.loc[BC, "clusters"] = df_bc["Count"].sum()
                 df = df.dropna()
 
