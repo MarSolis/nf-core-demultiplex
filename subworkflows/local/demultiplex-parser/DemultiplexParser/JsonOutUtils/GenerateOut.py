@@ -29,7 +29,7 @@ class GenerateOut:
             df.loc[Sample,"sample"] = Sample
             df.loc[Sample, "runId"] = df_sample["runId"].tolist()[0]
             df.loc[Sample, "pfClusters"] = df_sample["PF Clusters"].sum()
-            df.loc[Sample, "pfReads"] = (df_sample["PF Clusters"].sum())*2
+            df.loc[Sample, "pfReads"] = (df_sample["PF Clusters"].sum())*2   # TODO DEPENDENCIA DE PAIRED END FIX PLS
             df.loc[Sample, "barcodeI7"] = df_sample["Barcode sequence"].tolist()[0]
             df.loc[Sample, "pctOfLane"] = df_sample["% of the lane"].mean()
             df.loc[Sample, "pctPerfectBarcode"] = df_sample["% Perfect barcode"].mean()

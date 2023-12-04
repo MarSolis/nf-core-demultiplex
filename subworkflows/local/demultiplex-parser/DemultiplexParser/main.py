@@ -39,10 +39,10 @@ if __name__ == '__main__':
     demultiplexed_runs_qc,sequencing_runs_qc = generate_out.generate_demultiplexed_runs_qc(flowcell_summary,interop_totals)
     unknown_barcodes = generate_out.generate_unknown_barcodes(unknown_barcodes)
 
-    demultiplexed_sample_qc.to_json(args.output_dir+"demultiplexed_sample_qc.json",orient="records")
-    demultiplexed_runs_qc.to_json(args.output_dir + "demultiplexed_run_qc.json",orient="records")
-    sequencing_runs_qc.to_json(args.output_dir + "sequencing_runs_qc.json",orient="records")
-    unknown_barcodes.to_json(args.output_dir + "unknown_barcodes.json",orient="records")
+    demultiplexed_sample_qc.to_json(os.path.join(args.output_dir, "demultiplexed_sample_qc.json"),orient="records")
+    demultiplexed_runs_qc.to_json(os.path.join(args.output_dir, "demultiplexed_run_qc.json"),orient="records")
+    sequencing_runs_qc.to_json(os.path.join(args.output_dir, "sequencing_runs_qc.json"),orient="records")
+    unknown_barcodes.to_json(os.path.join(args.output_dir, "unknown_barcodes.json"),orient="records")
 
 
 

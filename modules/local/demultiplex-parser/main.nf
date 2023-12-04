@@ -7,7 +7,7 @@ process DEMULTIPARSER{
   input:
     path(input_dir)
     path(multiqc_file)
-    path(output_dir)
+    val output_dir
     val script_parser
     val interop_step_controller
     val multiqc_step_controller
