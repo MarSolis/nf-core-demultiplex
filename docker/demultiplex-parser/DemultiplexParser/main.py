@@ -18,19 +18,15 @@ if not os.path.isdir(args.input_dir):
 
 
 if __name__ == '__main__':
-    #input_dir = "Demultiplex/"
-    #multiqc_file = "QC/MultiQC/multiqc/multiqc_data/multiqc_fastqc.txt"
-    #output_dir = ""
-
     #Inicializar la clase
     parser_report = ParseReportFiles(args.input_dir)
-    qc_parser = ParseQCFiles(args.multiqc_file)
     interop_parser = ParseInteropFiles(args.output_dir)
+    qc_parser = ParseQCFiles(args.multiqc_file)
     generate_out = GenerateOut()
 
     #Parsing Data
     flowcell_summary,lane_summary,unknown_barcodes = parser_report.parse_demultiplex_data()
-    interop_totals = interop_parser.parse_data()
+    interop_totals, interop_lanes = interop_parser.parse_data()
     qc_data = qc_parser.parse_data()
 
 
@@ -39,10 +35,12 @@ if __name__ == '__main__':
     demultiplexed_runs_qc,sequencing_runs_qc = generate_out.generate_demultiplexed_runs_qc(flowcell_summary,interop_totals)
     unknown_barcodes = generate_out.generate_unknown_barcodes(unknown_barcodes)
 
-    demultiplexed_sample_qc.to_json(args.output_dir+"demultiplexed_sample_qc.json",orient="records")
-    demultiplexed_runs_qc.to_json(args.output_dir + "demultiplexed_run_qc.json",orient="records")
-    sequencing_runs_qc.to_json(args.output_dir + "sequencing_runs_qc.json",orient="records")
-    unknown_barcodes.to_json(args.output_dir + "unknown_barcodes.json",orient="records")
+    demultiplexed_sample_qc.to_json(os.path.join(args.output_dir, "demultiplexed_sample_qc.json"),orient="records")
+    demultiplexed_runs_qc.to_json(os.path.join(args.output_dir, "demultiplexed_run_qc.json"),orient="records")
+    sequencing_runs_qc.to_json(os.path.join(args.output_dir, "sequencing_runs_qc.json"),orient="records")
+    unknown_barcodes.to_json(os.path.join(args.output_dir, "unknown_barcodes.json"),orient="records")
+    interop_lanes.to_json(os.path.join(args.output_dir, "lanes_table_definition.json"), orient="records")
+
 
 
 

@@ -1,8 +1,0 @@
-CUSTOM_DUMPSOFTWAREVERSIONS:
-  python: 3.11.0
-  yaml: '6.0'
-MULTIQC:
-  multiqc: '1.14'
-Workflow:
-  Nextflow: 23.04.4
-  nf-core/multiqc: 1.0dev

@@ -1,1 +1,0 @@
-from .ParseQCFiles import ParseQCFiles
