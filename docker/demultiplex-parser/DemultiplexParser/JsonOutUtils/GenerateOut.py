@@ -32,13 +32,13 @@ class GenerateOut:
             df.loc[Sample, "pfClusters"] = df_sample["PF Clusters"].sum()
             df.loc[Sample, "pfReads"] = (df_sample["PF Clusters"].sum())*2
             df.loc[Sample, "barcodeI7"] = df_sample["Barcode sequence"].tolist()[0]
-            df.loc[Sample, "pctOfLane"] = df_sample["% of thelane"].mean()
-            df.loc[Sample, "pctPerfectBarcode"] = df_sample["% Perfectbarcode"].mean()
-            df.loc[Sample, "pctOneMismatch"] = df_sample["% One mismatchbarcode"].mean()
+            df.loc[Sample, "pctOfLane"] = df_sample["% of the lane"].mean()
+            df.loc[Sample, "pctPerfectBarcode"] = df_sample["% Perfect barcode"].mean()
+            df.loc[Sample, "pctOneMismatch"] = df_sample["% One mismatch barcode"].mean()
             df.loc[Sample, "yieldDemultiplex"] = df_sample["Yield (Mbases)"].sum()
-            df.loc[Sample, "pctPfClusters"] = df_sample["% PFClusters"].mean()
-            df.loc[Sample, "pctQ30"] = df_sample["% >= Q30bases"].mean()
-            df.loc[Sample, "meanQualityScore"] = df_sample["Mean QualityScore"].mean()
+            df.loc[Sample, "pctPfClusters"] = df_sample["% PF Clusters"].mean()
+            df.loc[Sample, "pctQ30"] = df_sample["% >= Q30 bases"].mean()
+            df.loc[Sample, "meanQualityScore"] = df_sample["Mean Quality Score"].mean()
             #df.loc[Sample, "yieldFastQC"] = df_qc["yieldFastqc"].tolist()[0]
             df.loc[Sample, "pctDupReads"] = df_qc["pctDupReads"].tolist()[0]
             df.loc[Sample, "averageSequenceLength"] = df_qc["averageSequenceLength"].tolist()[0]
