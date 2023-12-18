@@ -14,7 +14,6 @@ class ParseReportFiles:
                 file_path = path + "/" + name
                 if "all/all/all/laneBarcode.html" in file_path:
                         paths_report.append(file_path)
-            print("Paths Report",paths_report)
 
         return paths_report
 
@@ -22,7 +21,6 @@ class ParseReportFiles:
 
     def parse_demultiplex_data(self):
         paths_report = self.get_report_files()
-        print(paths_report)
         flowcell_summary = None
         lane_summary = None
         unknown_barcodes = None
