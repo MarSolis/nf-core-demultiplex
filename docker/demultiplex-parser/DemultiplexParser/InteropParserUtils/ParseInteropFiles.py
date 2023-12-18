@@ -7,7 +7,7 @@ class ParseInteropFiles:
     def __init__(self, output_dir):
         self.output_dir = output_dir
 
-    def build_df(index, row):
+    def build_df(self, index, row):
         df_op = pd.DataFrame()
         df_op.loc[index, "tiles"] = row[2]
         df_op.loc[index, "density"] = row[3]
@@ -38,7 +38,7 @@ class ParseInteropFiles:
         df_op.loc[index, "prephasing_B"] = row[7].split("/")[1]
         return (df_op)
 
-    def average(lst):
+    def average(self, lst):
         return sum(lst) / len(lst)
 
     def parse_data(self):
