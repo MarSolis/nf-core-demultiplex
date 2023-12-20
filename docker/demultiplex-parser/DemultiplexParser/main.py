@@ -14,8 +14,8 @@ parser.add_argument('--output_dir', type=str, help='Path to output directory.', 
 
 args = parser.parse_args()
 
-#if not os.path.isdir(args.input_dir):
-#    parser.error("The path to the input directory is incorrect. Please, check it the path and re-run the script.")
+if not os.path.isdir(args.input_dir):
+    parser.error("The path to the input directory is incorrect. Please, check it the path and re-run the script.")
 
 
 if __name__ == '__main__':
