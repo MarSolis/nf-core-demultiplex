@@ -1,1 +1,2 @@
 from .ParseInteropFiles import ParseInteropFiles
+from .ParseInteropFiles import interop_summary_parser

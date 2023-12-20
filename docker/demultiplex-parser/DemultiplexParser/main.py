@@ -1,9 +1,10 @@
 from DemultiplexParserUtils import ParseReportFiles
 from QCParserUtils import ParseQCFiles
-from InteropParserUtils import ParseInteropFiles
+from InteropParserUtils import ParseInteropFiles, interop_summary_parser
 from JsonOutUtils import GenerateOut
 import argparse
 import os
+import json
 
 parser = argparse.ArgumentParser(prog="Demultiplex_Parser", description='This script parse Demultiples and QC data.')
 
@@ -39,8 +40,8 @@ if __name__ == '__main__':
     demultiplexed_runs_qc.to_json(os.path.join(args.output_dir, "demultiplexed_run_qc.json"),orient="records")
     sequencing_runs_qc.to_json(os.path.join(args.output_dir, "sequencing_runs_qc.json"),orient="records")
     unknown_barcodes.to_json(os.path.join(args.output_dir, "unknown_barcodes.json"),orient="records")
-    interop_lanes.to_json(os.path.join(args.output_dir, "lanes_table_definition.json"), orient="records")
+    #interop_lanes.to_json(os.path.join(args.output_dir, "lanes_table_definition.json"), orient="records")
+    json_read_lane = interop_summary_parser(os.path.join(args.output_dir, "QC", "interop_summary.csv"))
 
-
-
-
+    with open(os.path.join(args.output_dir, "read_lane.json"), 'w') as fo_read_lane:
+        json.dump(json_read_lane, fo_read_lane)

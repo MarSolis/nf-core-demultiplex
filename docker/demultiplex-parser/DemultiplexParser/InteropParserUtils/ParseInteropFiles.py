@@ -1,6 +1,83 @@
 import os
 import csv
 import pandas as pd
+import json
+
+def interop_summary_parser(interop_summary):
+    tmp_reads = []
+    reads = []
+    lanes = {}
+    with open(interop_summary, 'r') as f_interop:
+        lines = f_interop.readlines()
+        header_flag = 0
+        for i in range(0, len(lines)):
+            line = lines[i].strip()
+            if line.startswith('Level'):
+                header_flag = 1
+                summary_header = line.split(',')
+                for j in range(i+1, len(lines)):
+                    aux_reads = {}
+                    if lines[j].startswith('Total') or lines[j].startswith('Non-indexed'):
+                        break
+                    if not lines[j].strip().split(',')[0].endswith('(I)'):
+                        if lines[j].strip().split(',')[0] == 'Read 1': aux_reads['readLevel'] = 1
+                        if lines[j].strip().split(',')[0] == 'Read 3' or lines[j].strip().split(',')[0] == 'Read 4': aux_reads['readLevel'] = 2
+                        aux_reads['yieldTotal'] = "null" if lines[j].strip().split(',')[1] == 'nan' else lines[j].strip().split(',')[1]
+                        aux_reads['projectedYield'] = "null" if lines[j].strip().split(',')[2] == 'nan' else lines[j].strip().split(',')[2]
+                        aux_reads['aligned'] = "null" if lines[j].strip().split(',')[3] == 'nan' else lines[j].strip().split(',')[3]
+                        aux_reads['errorRate'] = "null" if lines[j].strip().split(',')[4] == 'nan' else lines[j].strip().split(',')[4]
+                        aux_reads['intensityCycle_1'] = "null" if lines[j].strip().split(',')[5] == 'nan' else lines[j].strip().split(',')[5]
+                        #aux_reads['pct_intensity_cycle_1'] =
+                        aux_reads['pctQ30'] = "null" if lines[j].strip().split(',')[6] == 'nan' else lines[j].strip().split(',')[6]
+                        aux_reads['pctOccupation'] = "null" if lines[j].strip().split(',')[7] == 'nan' else lines[j].strip().split(',')[7]
+                        aux_reads['lanes'] = []
+                        tmp_reads.append(aux_reads)
+
+            if line.startswith('Total') and header_flag == 1:
+                header_flag = 0
+
+            if line.startswith('Read') and header_flag == 0 and not line.endswith('(I)'):
+                if line.split(' ')[-1] == '1': read_level = 1
+                elif line.split(' ')[-1] == '3' or '4': read_level = 2
+                lanes[read_level] = []
+                lane_header = lines[i+1].split(',')
+                for j in range(i+2, len(lines)):
+                    aux_lane = {}
+                    if lines[j].startswith('Read') or lines[j].startswith('Extracted'):
+                        break
+                    if lines[j].strip().split(',')[1] == '-':
+                        aux_lane['lane'] = lines[j].strip().split(',')[0]
+                        aux_lane['tiles'] = lines[j].strip().split(',')[2]
+                        aux_lane['density'] = lines[j].strip().split(',')[3]
+                        aux_lane['pctPf'] = lines[j].strip().split(',')[4]
+                        aux_lane['legacyPhasingPrephasingRate'] = lines[j].strip().split(',')[5]
+                        aux_lane['phasingSlopeOffset'] = lines[j].strip().split(',')[6]
+                        aux_lane['prephasingSlopeOffset'] = lines[j].strip().split(',')[7]
+                        aux_lane['reads'] = lines[j].strip().split(',')[8]
+                        aux_lane['readsPf'] = lines[j].strip().split(',')[9]
+                        aux_lane['pctQ30'] = lines[j].strip().split(',')[10]
+                        aux_lane['yield'] = lines[j].strip().split(',')[11]
+                        aux_lane['cycleErrorRate'] = lines[j].strip().split(',')[12]
+                        aux_lane['pctAligned'] = lines[j].strip().split(',')[13]
+                        aux_lane['errorRate'] = lines[j].strip().split(',')[14]
+                        aux_lane['pctErrorRate35'] = lines[j].strip().split(',')[15]
+                        #aux_lane['pct_error_rate_50'] = lines[j].strip().split(',')[0]
+                        aux_lane['pctErrorRate75'] = lines[j].strip().split(',')[16]
+                        aux_lane['pctErrorRate100'] = lines[j].strip().split(',')[17]
+                        aux_lane['pctOccupation'] = lines[j].strip().split(',')[18]
+                        aux_lane['intensityCycle1'] = lines[j].strip().split(',')[19]
+                        lanes[read_level].append(aux_lane)
+
+    # Build final array of reads and lanes
+    for d in tmp_reads:
+        read_level = d['read_level']
+        d['lanes'] = lanes[read_level]
+        reads.append(d)
+
+    # Return JSON
+    final = json.dumps(reads, indent=2)
+    return(final)
+
 
 class ParseInteropFiles:
 
