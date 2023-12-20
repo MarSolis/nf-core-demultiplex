@@ -22,14 +22,14 @@ def interop_summary_parser(interop_summary):
                     if not lines[j].strip().split(',')[0].endswith('(I)'):
                         if lines[j].strip().split(',')[0] == 'Read 1': aux_reads['readLevel'] = 1
                         if lines[j].strip().split(',')[0] == 'Read 3' or lines[j].strip().split(',')[0] == 'Read 4': aux_reads['readLevel'] = 2
-                        aux_reads['yieldTotal'] = "null" if lines[j].strip().split(',')[1] == 'nan' else lines[j].strip().split(',')[1]
-                        aux_reads['projectedYield'] = "null" if lines[j].strip().split(',')[2] == 'nan' else lines[j].strip().split(',')[2]
-                        aux_reads['aligned'] = "null" if lines[j].strip().split(',')[3] == 'nan' else lines[j].strip().split(',')[3]
-                        aux_reads['errorRate'] = "null" if lines[j].strip().split(',')[4] == 'nan' else lines[j].strip().split(',')[4]
-                        aux_reads['intensityCycle_1'] = "null" if lines[j].strip().split(',')[5] == 'nan' else lines[j].strip().split(',')[5]
+                        aux_reads['yieldTotal'] = None if lines[j].strip().split(',')[1] == 'nan' else lines[j].strip().split(',')[1]
+                        aux_reads['projectedYield'] = None if lines[j].strip().split(',')[2] == 'nan' else lines[j].strip().split(',')[2]
+                        aux_reads['aligned'] = None if lines[j].strip().split(',')[3] == 'nan' else lines[j].strip().split(',')[3]
+                        aux_reads['errorRate'] = None if lines[j].strip().split(',')[4] == 'nan' else lines[j].strip().split(',')[4]
+                        aux_reads['intensityCycle_1'] = None if lines[j].strip().split(',')[5] == 'nan' else lines[j].strip().split(',')[5]
                         #aux_reads['pct_intensity_cycle_1'] =
-                        aux_reads['pctQ30'] = "null" if lines[j].strip().split(',')[6] == 'nan' else lines[j].strip().split(',')[6]
-                        aux_reads['pctOccupation'] = "null" if lines[j].strip().split(',')[7] == 'nan' else lines[j].strip().split(',')[7]
+                        aux_reads['pctQ30'] = None if lines[j].strip().split(',')[6] == 'nan' else lines[j].strip().split(',')[6]
+                        aux_reads['pctOccupation'] = None if lines[j].strip().split(',')[7] == 'nan' else lines[j].strip().split(',')[7]
                         aux_reads['lanes'] = []
                         tmp_reads.append(aux_reads)
 
