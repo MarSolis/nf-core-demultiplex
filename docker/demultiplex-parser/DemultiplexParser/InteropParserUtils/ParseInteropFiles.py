@@ -70,7 +70,7 @@ def interop_summary_parser(interop_summary):
 
     # Build final array of reads and lanes
     for d in tmp_reads:
-        read_level = d['read_level']
+        read_level = d['readLevel']
         d['lanes'] = lanes[read_level]
         reads.append(d)
 
