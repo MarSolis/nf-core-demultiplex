@@ -75,8 +75,7 @@ def interop_summary_parser(interop_summary):
         reads.append(d)
 
     # Return JSON
-    final = json.dumps(reads, indent=2)
-    return(final)
+    return(reads)
 
 
 class ParseInteropFiles:

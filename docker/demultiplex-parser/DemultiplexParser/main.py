@@ -44,4 +44,4 @@ if __name__ == '__main__':
     json_read_lane = interop_summary_parser(os.path.join(args.output_dir, "QC", "interop_summary.csv"))
 
     with open(os.path.join(args.output_dir, "read_lane.json"), 'w') as fo_read_lane:
-        json.dump(json_read_lane, fo_read_lane)
+        json.dump(json_read_lane, fo_read_lane, indent=2)

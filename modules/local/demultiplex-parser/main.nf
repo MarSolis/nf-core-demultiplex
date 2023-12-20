@@ -5,8 +5,8 @@ process DEMULTIPARSER{
 
   container "demultiplex-parser:latest"
   input:
-    path(input_dir)
-    path(multiqc_file)
+    val input_dir
+    val multiqc_file
     val output_dir
     val script_parser
     val interop_step_controller
