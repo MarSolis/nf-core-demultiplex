@@ -48,15 +48,19 @@ class GenerateOut:
         return df
 
     def generate_unknown_barcodes(self, unknown_barcodes):
-            df = pd.DataFrame()
+        df = pd.DataFrame()
+        unknown_barcodes = unknown_barcodes.dropna()
+        lanes = list(set(unknown_barcodes["Lane"].tolist()))
+        for lane in lanes:
+            df_lane = unknown_barcodes.loc[unknown_barcodes['Lane'].isin([lane])]
             barcodes = unknown_barcodes["Sequence"].tolist()
-
             for BC in barcodes:
-                df_bc = unknown_barcodes.loc[unknown_barcodes['Sequence'].isin([BC])]
-                df.loc[BC,"unknownBarcodeCode"] = BC
-                df.loc[BC, "clusters"] = df_bc["Count"].sum()
-                df = df.dropna()
-
-            return df
+                df_bc = df_lane.loc[df_lane['Sequence'].isin([BC])]
+                df.loc[BC, "sequence"] = BC
+                df.loc[BC, "clustersCount"] = int(df_bc["Count"])
+                df.loc[BC, "lane"] = str(lane)
+                df.loc[BC, "code"] = "null"
+                
+        return df
 
 
