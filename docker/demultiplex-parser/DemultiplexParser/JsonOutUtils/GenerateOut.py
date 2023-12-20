@@ -59,8 +59,8 @@ class GenerateOut:
                 df.loc[BC, "sequence"] = BC
                 df.loc[BC, "clustersCount"] = int(df_bc["Count"])
                 df.loc[BC, "lane"] = str(lane)
-                df.loc[BC, "code"] = "null"
-                
+                df.loc[BC, "code"] = None
+
         return df
 
 
