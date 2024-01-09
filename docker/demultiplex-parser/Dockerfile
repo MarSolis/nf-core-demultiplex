@@ -7,4 +7,7 @@ COPY DemultiplexParser .
 RUN apt-get update && \
     apt-get -y install python3-pandas
 
-RUN pip3 install --no-cache-dir -r DemultiplexParser/requirements.txt
+WORKDIR /app/DemultiplexParser/
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+WORKDIR /app
