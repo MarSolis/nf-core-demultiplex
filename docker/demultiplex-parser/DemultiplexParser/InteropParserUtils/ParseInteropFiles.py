@@ -63,7 +63,7 @@ def interop_summary_parser(interop_summary):
                         #aux_lane['pct_error_rate_50'] = lines[j].strip().split(',')[0]
                         aux_lane['pctErrorRate75'] = lines[j].strip().split(',')[16]
                         aux_lane['pctErrorRate100'] = lines[j].strip().split(',')[17]
-                        aux_lane['pctOccupation'] = lines[j].strip().split(',')[18]
+                        #aux_lane['pctOccupation'] = lines[j].strip().split(',')[18]
                         aux_lane['intensityCycle1'] = lines[j].strip().split(',')[19]
                         lanes[read_level].append(aux_lane)
 
