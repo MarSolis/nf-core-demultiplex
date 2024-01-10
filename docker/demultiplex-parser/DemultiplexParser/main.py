@@ -38,8 +38,8 @@ if __name__ == '__main__':
 
     demultiplexed_sample_qc.to_json(os.path.join(args.output_dir, "demultiplexed_sample_qc.json"),orient="records")
 
-    demultiplexed_runs_qc.to_json(os.path.join(args.output_dir, "demultiplexed_run_qc.json"),orient="records")[1:-1]
-    sequencing_runs_qc.to_json(os.path.join(args.output_dir, "sequencing_runs_qc.json"),orient="records")[1:-1]
+    demultiplexed_runs_qc.to_json(os.path.join(args.output_dir, "demultiplexed_run_qc.json"),orient="records", lines=True)
+    sequencing_runs_qc.to_json(os.path.join(args.output_dir, "sequencing_runs_qc.json"),orient="records", lines=True)
 
     unknown_barcodes.to_json(os.path.join(args.output_dir, "unknown_barcodes.json"),orient="records")
     #interop_lanes.to_json(os.path.join(args.output_dir, "lanes_table_definition.json"), orient="records")
