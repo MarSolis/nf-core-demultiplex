@@ -10,9 +10,10 @@ class GenerateOut:
         demultiplexed_runs_qc["yieldInterop"] = interop_totals["Yield"].tolist()[0]
         demultiplexed_runs_qc["averagePctQ30"] = interop_totals["%>=Q30"].tolist()[0]
         demultiplexed_runs_qc["pctPfClusters"] = (demultiplexed_runs_qc["pfClusters"].tolist()[0]/demultiplexed_runs_qc["rawClusters"].tolist()[0])*100
-        sequencing_runs_qc.loc["total","pctOccupation"] = interop_totals["% Occupied"].tolist()[0]
-        sequencing_runs_qc.loc["total","pctAligned"] = interop_totals["Aligned"].tolist()[0]
-        sequencing_runs_qc.loc["total","errorRate"] = interop_totals["Error Rate"].tolist()[0]
+        sequencing_runs_qc.loc["total","pctOccupation"] = None if interop_totals["% Occupied"].tolist()[0] == 'nan' else interop_totals["% Occupied"].tolist()[0]
+        sequencing_runs_qc.loc["total","pctAligned"] = None if interop_totals["Aligned"].tolist()[0] == 'nan' else interop_totals["Aligned"].tolist()[0]
+        sequencing_runs_qc.loc["total","errorRate"] = None  if interop_totals["Error Rate"].tolist()[0] == 'nan' else interop_totals["Error Rate"].tolist()[0]
+
         print(sequencing_runs_qc)
         return demultiplexed_runs_qc,sequencing_runs_qc
 
