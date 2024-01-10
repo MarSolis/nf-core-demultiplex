@@ -26,8 +26,7 @@ def interop_summary_parser(interop_summary):
                         aux_reads['projectedYield'] = None if lines[j].strip().split(',')[2] == 'nan' else lines[j].strip().split(',')[2]
                         aux_reads['aligned'] = None if lines[j].strip().split(',')[3] == 'nan' else lines[j].strip().split(',')[3]
                         aux_reads['errorRate'] = None if lines[j].strip().split(',')[4] == 'nan' else lines[j].strip().split(',')[4]
-                        aux_reads['intensityCycle_1'] = None if lines[j].strip().split(',')[5] == 'nan' else lines[j].strip().split(',')[5]
-                        #aux_reads['pct_intensity_cycle_1'] =
+                        aux_reads['intensityCycle1'] = None if lines[j].strip().split(',')[5] == 'nan' else lines[j].strip().split(',')[5]
                         aux_reads['pctQ30'] = None if lines[j].strip().split(',')[6] == 'nan' else lines[j].strip().split(',')[6]
                         aux_reads['pctOccupation'] = None if lines[j].strip().split(',')[7] == 'nan' else lines[j].strip().split(',')[7]
                         aux_reads['lanes'] = []
