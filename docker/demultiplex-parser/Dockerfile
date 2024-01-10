@@ -1,10 +1,7 @@
-FROM python:3.9.0a6-buster
+FROM python:3.9-bookworm
 
 WORKDIR /app
 
 COPY DemultiplexParser .
 
-RUN apt-get update && \
-    apt-get -y install python3-pandas
-
-RUN pip3 install pandas
+RUN pip3 install pandas[all]
